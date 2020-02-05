@@ -20,6 +20,6 @@ echo "Password = "$(kubectl config view -o jsonpath="{.users[?(@.name==\"$CLUSTE
 
 echo ""
 echo "Bearer Token: "
-echo $(kubectl describe secret $(kubectl -n kubernetes-dashboard get secret | grep default | awk '{print $1}') | grep token: | awk '{print $2}')
+echo $(kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}') | grep token: | awk '{print $2}')
 
 echo ""
